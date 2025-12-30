@@ -1,0 +1,47 @@
+# Project File Map (Root: a0.b8-plugin)
+
+a0.b8-plugin/
+    bot_registry.json
+    pyproject.toml
+    topology.json
+    NOTICE
+    README.md
+    requirements.txt
+    INIT.md
+    LICENSE
+    AGENTS.md
+    CHANGELOG.md
+    TODO.md
+    bithub/
+        plugin.py
+        bithub_janitor.py
+        __init__.py
+        README.md
+        bithub_chat_realtime.py
+        bithub_comms.py
+        bithub_comms_schemas.json
+        bithub_errors.py
+        bithub_auth.py
+        bithub_config.py
+        bithub_cores.py
+        bithub.py
+        bithub_registry.py
+        bithub_logging.py
+    tests/
+        conftest.py
+        test_cores.py
+        __init__.py
+        test_cli.py
+        test_janitor.py
+        test_chat_connectivity.py
+        test_multiturn.py
+        test_comms.py
+    scripts/
+        fetch_topology.py
+        README.md
+        fetch_core_data.py
+        setup_env.py
+        setup_mcp.py
+    docs/
+        DELETION_GUIDE.md
+        ARCHITECTURE_SUMMARY.md

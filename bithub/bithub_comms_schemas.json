@@ -1,0 +1,65 @@
+{
+  "bithub_comms.send_private_message": {
+    "type": "object",
+    "properties": {
+      "recipients": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "List of usernames"
+      },
+      "title": {
+        "type": "string",
+        "description": "Subject line"
+      },
+      "raw": {
+        "type": "string",
+        "description": "Body content"
+      }
+    },
+    "required": [
+      "recipients",
+      "title",
+      "raw"
+    ]
+  },
+  "bithub_comms.reply_to_post": {
+    "type": "object",
+    "properties": {
+      "topic_id": {
+        "type": "integer",
+        "description": "Topic ID"
+      },
+      "raw": {
+        "type": "string",
+        "description": "Reply content"
+      },
+      "reply_to_post_number": {
+        "type": "integer",
+        "description": "Optional post number to reply to"
+      }
+    },
+    "required": [
+      "topic_id",
+      "raw"
+    ]
+  },
+  "bithub_comms.check_notifications": {
+    "type": "object",
+    "properties": {
+      "limit": {
+        "type": "integer",
+        "default": 15
+      },
+      "filter_type": {
+        "type": "string",
+        "enum": [
+          "mentions",
+          "replies",
+          "private_message"
+        ]
+      }
+    }
+  }
+}
