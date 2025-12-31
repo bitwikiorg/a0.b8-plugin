@@ -1,8 +1,8 @@
+print("DEBUG: Script started")
 """
 Title: fetch_core_data.py Script
-Description: Script for fetch_core_data.
+Description: CLI script to sync Core definitions from BIThub.
 """
-
 
 import sys
 import os
@@ -11,34 +11,25 @@ from dotenv import load_dotenv
 
 # Add parent dir to path
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from bithub.bithub_comms import BithubComms
+from bithub.bithub_cores import BithubCores
+# BithubComms import is not strictly needed if we just use BithubCores
 
 def fetch_core_data():
     load_dotenv()
-    comms = BithubComms()
-
-    print("--- CATEGORIES (Recursive) ---")
+    
+    # Initialize Cores manager
+    # BithubCores inherits from BithubComms, so we just instantiate it directly
+    cores = BithubCores()
+    
+    print("--- SYNCING CORES ---")
     try:
-        resp = comms._request("GET", "/categories.json?include_subcategories=true")
-        categories = resp.get('category_list', {}).get('categories', [])
-
-        def print_cat(cat, level=0):
-            indent = "  " * level
-            print(f"{cat['id']:<5} | {indent}{cat['name']} ({cat['slug']})")
-            for sub in cat.get('subcategory_list', []):
-                print_cat(sub, level + 1)
-
-        for cat in categories:
-            print_cat(cat)
-
+        results = cores.sync_cores()
+        print(f"Successfully synced {len(results)} cores.")
+        for core in results:
+            print(f"- [{core['id']}] {core['name']} ({core['slug']})")
+            
     except Exception as e:
-        print(f"Error fetching categories: {e}")
-
-    print("
---- BOTS (Registry) ---")
-    # Assuming registry file exists or fetching from topic if needed
-    # For now, just listing what we know or fetching from API if possible (Discourse doesn't list 'bots' easily without admin)
-    # We'll stick to categories for now as that was the critical error.
+        print(f"Error syncing cores: {e}")
 
 if __name__ == "__main__":
     fetch_core_data()

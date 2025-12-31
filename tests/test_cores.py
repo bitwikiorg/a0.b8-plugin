@@ -5,7 +5,7 @@ Description: Test suite for cores.
 
 import pytest
 import os
-from unittest.mock import MagicMock, patch
+from unittest.mock import MagicMock, patch, mock_open
 from bithub.bithub_cores import BithubCores
 from bithub.bithub_errors import BithubError
 
@@ -234,3 +234,42 @@ def test_deploy_core_burn_no_sync(mock_cores):
         assert result['status'] == 'deployed'
         mock_watch.assert_not_called()
         mock_delete.assert_not_called()
+
+
+def test_sync_cores(mock_cores):
+    """Test sync_cores fetches categories and writes to registry."""
+    cores, _, _, mock_req = mock_cores
+
+    # Mock API response
+    mock_response = {
+        "category_list": {
+            "categories": [
+                {"id": 10, "name": "Core A", "slug": "core-a", "description": "Desc A", "topic_count": 5},
+                {"id": 11, "name": "Core B", "slug": "core-b", "description": "Desc B", "topic_count": 2}
+            ]
+        }
+    }
+    mock_req.return_value = mock_response
+
+    # Mock file writing
+    m = mock_open()
+    with patch("builtins.open", m):
+        # Execute
+        result = cores.sync_cores()
+
+        # Verify API call
+        # We check if the URL starts with the expected endpoint
+        args, _ = mock_req.call_args
+        assert args[0] == "GET"
+        assert "/categories.json?parent_category_id=" in args[1]
+
+        # Verify result parsing
+        assert len(result) == 2
+        assert result[0]['id'] == 10
+        assert result[0]['name'] == "Core A"
+        assert result[1]['slug'] == "core-b"
+
+        # Verify file write occurred
+        # json.dump writes to the file handle
+        handle = m()
+        handle.write.assert_called()

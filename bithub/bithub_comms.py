@@ -1,3 +1,5 @@
+from dotenv import load_dotenv
+load_dotenv()
 """
 Why: Manages the Synapse Layer (Transport) for the Neural Net Link.
 What: Handles Flash (Realtime) and Deep (Memory) Synapse protocols.

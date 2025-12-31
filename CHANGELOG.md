@@ -19,3 +19,16 @@ All notable changes to this project will be documented in this file.
 ### Fixed
 - **Test Suite**: Refactored all tests to use mocks, ensuring zero network traffic during verification.
 - **Rate Limiting**: Added poll_interval to wait loops to respect API limits.
+
+## [1.0.0] - 2025-12-30
+### Added
+- **Pull Cores**: New  functionality in  to fetch Core Categories (Hegel, BITcore, etc.) recursively.
+- **CLI Tool**: Updated  to execute the core sync process.
+- **Security**: Implemented permission-aware syncing (skips inaccessible categories).
+
+### Fixed
+- **Integration**: Resolved syntax errors in  and environment loading in .
+- **Configuration**: Added missing  and  to .
+
+### Changed
+- **Architecture**: Moved core sync logic from scripts to the  library for better reusability.

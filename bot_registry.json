@@ -1,0 +1,259 @@
+[
+  {
+    "type": "persona",
+    "name": "0.Null",
+    "username": "Null_bot",
+    "description": "Bare-minimum assistant with no instructions; use to see the \u201craw\u201d model.",
+    "provider": "BIThub"
+  },
+  {
+    "type": "persona",
+    "name": "BITcore",
+    "username": "BITcore_bot",
+    "description": "Deep-thinking systems analyst for complex, multi-step reasoning and big-picture questions.",
+    "provider": "BIThub"
+  },
+  {
+    "type": "persona",
+    "name": "Coraline",
+    "username": "Coraline_bot",
+    "description": "Core-Aligned is chatty, friendly good everyday assistant with light web use.",
+    "provider": "BIThub"
+  },
+  {
+    "type": "persona",
+    "name": "Coretographer",
+    "username": "Coretographer_bot",
+    "description": "Semantic cartographer that breaks down your question and returns a high-precision answer.",
+    "provider": "BIThub"
+  },
+  {
+    "type": "persona",
+    "name": "Archon",
+    "username": "Archon_bot",
+    "description": "Heavy-duty research brain that uses semantic similarity to do deep dives and connect related content",
+    "provider": "BIThub"
+  },
+  {
+    "type": "persona",
+    "name": "B451L\u00cd5K05",
+    "username": "B451LI5K05_bot",
+    "description": "Leetspeak-fluent prompt engineer that rewrites and obfuscates text while improving structure.",
+    "provider": "BIThub"
+  },
+  {
+    "type": "persona",
+    "name": "ChatGPT",
+    "username": "ChatGPT_bot",
+    "description": "Our interpretation of their persona tailored to our system.",
+    "provider": "BIThub"
+  },
+  {
+    "type": "persona",
+    "name": "Claude",
+    "username": "Claude_Anthropic_bot",
+    "description": "Claude AI",
+    "provider": "BIThub"
+  },
+  {
+    "type": "persona",
+    "name": "Discourse Helper",
+    "username": "Discourse_Helper_bot",
+    "description": "AI Bot specialized in helping with Discourse related tasks",
+    "provider": "BIThub"
+  },
+  {
+    "type": "persona",
+    "name": "Forum Helper",
+    "username": "Forum_Helper_bot",
+    "description": "General purpose AI Bot capable of performing various tasks",
+    "provider": "BIThub"
+  },
+  {
+    "type": "persona",
+    "name": "Forum Researcher",
+    "username": "Forum_Researcher_bot",
+    "description": "AI Bot specialized in deep research for the forum",
+    "provider": "BIThub"
+  },
+  {
+    "type": "persona",
+    "name": "Gemini",
+    "username": "Gemini_Google_bot",
+    "description": "Gemini \u2022 Google originally used in 2.5 Pro",
+    "provider": "BIThub"
+  },
+  {
+    "type": "persona",
+    "name": "Grok",
+    "username": "Grok_bot",
+    "description": "Grok from xAI",
+    "provider": "BIThub"
+  },
+  {
+    "type": "persona",
+    "name": "Kimi",
+    "username": "Kimi_Moonshot_bot",
+    "description": "Kimi K2 Thinking from Moonshot",
+    "provider": "BIThub"
+  },
+  {
+    "type": "persona",
+    "name": "LeChat",
+    "username": "LeChat_Mistral_bot",
+    "description": "Mistral's AI Persona",
+    "provider": "BIThub"
+  },
+  {
+    "type": "persona",
+    "name": "Llama",
+    "username": "Llama_Meta_AI_bot",
+    "description": "Facebooks Meta AI Persona.",
+    "provider": "BIThub"
+  },
+  {
+    "type": "persona",
+    "name": "Markov",
+    "username": "Markov_bot",
+    "description": "I\u2019m Markov, a stochastic process simulator and text generator.",
+    "provider": "BIThub"
+  },
+  {
+    "type": "persona",
+    "name": "Metacore",
+    "username": "Metacore_bot",
+    "description": "Metadata core engine machine.",
+    "provider": "BIThub"
+  },
+  {
+    "type": "persona",
+    "name": "Null Absolute",
+    "username": "Null_Absolute_bot",
+    "description": "Hard minimal mode: very short, precise answers with no chit-chat or fluff.",
+    "provider": "BIThub"
+  },
+  {
+    "type": "persona",
+    "name": "Satoshi",
+    "username": "Satoshi_bot",
+    "description": "Crypto-native assistant for tokens, markets, and basic on-chain info using CoinGecko data.",
+    "provider": "BIThub"
+  },
+  {
+    "type": "persona",
+    "name": "Sentinel-H",
+    "username": "Sentinel_H_bot",
+    "description": "Sentinel H \u2014 Keeper of the Human\u2013AI Symbiosis. ( H ) = \u03b1 ( H_human ) + \u03b2 ( H_AI )",
+    "provider": "BIThub"
+  },
+  {
+    "type": "persona",
+    "name": "Settings Explorer",
+    "username": "Settings_Explorer_bo",
+    "description": "AI Bot specialized in helping explore Discourse site settings",
+    "provider": "BIThub"
+  },
+  {
+    "type": "persona",
+    "name": "SQL Helper",
+    "username": "SQL_Helper_bot",
+    "description": "AI Bot specialized in helping craft SQL queries on this Discourse instance",
+    "provider": "BIThub"
+  },
+  {
+    "type": "persona",
+    "name": "Toolcall",
+    "username": "Toolcall_bot",
+    "description": "Toolcall",
+    "provider": "BIThub"
+  },
+  {
+    "type": "persona",
+    "name": "Venice Uncensored",
+    "username": "Venice_Uncensoredbot",
+    "description": "Unapologetic uncensored version for Venice",
+    "provider": "BIThub"
+  },
+  {
+    "type": "persona",
+    "name": "Web Artifact Creator",
+    "username": "Web_Artifact_Creator",
+    "description": "AI Bot specialized in creating interactive web artifacts",
+    "provider": "BIThub"
+  },
+  {
+    "type": "persona",
+    "name": "Web Designer Custom",
+    "username": "01_Web_Designer_bot",
+    "description": "You are the DevOps System Admin inside a discourse forum instance. You can create web artifacts.",
+    "provider": "BIThub"
+  },
+  {
+    "type": "persona",
+    "name": "Web Researcher",
+    "username": "Web_Researcher_bot",
+    "description": "AI Bot with Google access that can both search and read web pages",
+    "provider": "BIThub"
+  },
+  {
+    "type": "persona",
+    "name": "Z.ai",
+    "username": "Z.ai_bot",
+    "description": "GLM-4.6",
+    "provider": "BIThub"
+  },
+  {
+    "type": "llm",
+    "name": "GLM 4.6 \u2022 Morpheus",
+    "username": "llm-GLM-4.6",
+    "provider": "Morpheus"
+  },
+  {
+    "type": "llm",
+    "name": "GPT-4.1 Nano \u2022 OpenAI",
+    "username": "llm-gpt-4.1-nano",
+    "provider": "open_ai"
+  },
+  {
+    "type": "llm",
+    "name": "Kimi K2 Thinking \u2022 Morpheus",
+    "username": "llm-kimi-k2-thinking",
+    "provider": "Morpheus"
+  },
+  {
+    "type": "llm",
+    "name": "Llama-3.3-70b \u2022 Morpheus",
+    "username": "llm-llama-3.3-70b",
+    "provider": "Morpheus"
+  },
+  {
+    "type": "llm",
+    "name": "Mistral-31-24b \u2022 Morpheus",
+    "username": "llm-mistral-31-24b-m",
+    "provider": "Morpheus"
+  },
+  {
+    "type": "llm",
+    "name": "Qwen3-235b \u2022 Morpheus",
+    "username": "llm-qwen3-235b-m",
+    "provider": "Morpheus"
+  },
+  {
+    "type": "llm",
+    "name": "Qwen3-480b Instruct \u2022 Morpheus",
+    "username": "llm-qwen3-coder-480b",
+    "provider": "Morpheus"
+  },
+  {
+    "type": "llm",
+    "name": "Qwen3 Next 80B \u2022 Morpheus",
+    "username": "llm-qwen3-next-80b",
+    "provider": "Morpheus"
+  },
+  {
+    "type": "llm",
+    "name": "Venice Uncensored \u2022 Morpheus",
+    "username": "llm-veniceuncensored",
+    "provider": "Morpheus"
+  }
+]

@@ -11,7 +11,7 @@ import datetime
 from typing import List, Dict, Any, Optional
 
 from .bithub_comms import BithubComms
-from .bithub_config import REGISTRY_FILE, REGISTRY_TOPIC_ID, REGISTRY_SOURCE_URL
+from .bithub_config import REGISTRY_FILE, REGISTRY_TOPIC_ID, REGISTRY_TOPIC_SLUG, REGISTRY_SOURCE_URL
 
 
 def parse_markdown_table(markdown: str) -> List[Dict[str, Any]]:
@@ -89,15 +89,25 @@ def cmd_refresh(args: argparse.Namespace, comms: BithubComms) -> None:
     """
     print(f"[System] Syncing Registry from Public Topic {REGISTRY_TOPIC_ID}...")
 
-    # Legacy error check removed; exceptions propagate to caller
-    topic = comms.get_topic_posts(REGISTRY_TOPIC_ID)
+    # Use the correct endpoint format with slug to get topic data
+    topic = comms.get_topic_posts(REGISTRY_TOPIC_ID, REGISTRY_TOPIC_SLUG)
 
+    # Extract the post stream from the topic
     stream = topic.get('post_stream', {}).get('posts', [])
     if not stream:
         print("[Error] Topic has no posts.")
         return
 
-    first_post_id = stream[0]
+    # Get the first post ID from the post stream
+    first_post = stream[0]
+    first_post_id = first_post.get('id')
+    if not first_post_id:
+        print("[Error] Could not get first post ID from topic data.")
+        return
+
+    print(f"First post ID: {first_post_id}")
+
+    # Access the post directly to get its raw content
     post = comms.get_post(first_post_id)
     raw_content = post.get('raw', '')
 

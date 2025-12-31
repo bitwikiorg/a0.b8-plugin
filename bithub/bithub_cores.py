@@ -11,9 +11,10 @@ How: Extends BithubComms to add genesis and observation capabilities.
 """
 
 import sys
+import json
 from typing import List, Optional, Dict, Any
 from .bithub_comms import BithubComms
-from .bithub_config import DEFAULT_CATEGORY_ID, DEFAULT_TIMEOUT
+from .bithub_config import DEFAULT_CATEGORY_ID, DEFAULT_TIMEOUT, CORES_CATEGORY_ID, CORES_REGISTRY_FILE
 
 class BithubCores(BithubComms):
     """Extended Bithub communication handler for CORES workflow deployments.
@@ -42,7 +43,7 @@ class BithubCores(BithubComms):
         }
         return self._request("POST", "/posts.json", json_data=payload)
 
-    
+
     def deploy_seed(self, title: str, category_id: int = DEFAULT_CATEGORY_ID) -> Dict[str, Any]:
         """Deploys a seed topic with a placeholder message.
 
@@ -164,6 +165,42 @@ class BithubCores(BithubComms):
         else:
             sys.stderr.write(f"[Cores] Timeout ({timeout}s) reached. No completion signal detected.\n")
             return None
+
+    def sync_cores(self) -> List[Dict[str, Any]]:
+        """Fetches Core definitions from the Cores category (subcategories).
+
+        Returns:
+            List[Dict[str, Any]]: A list of core definitions found.
+        """
+        sys.stderr.write(f"[Cores] Syncing Cores from Category {CORES_CATEGORY_ID} (fetching subcategories)...\n")
+
+        try:
+            # 1. Fetch Categories
+            # Use the categories endpoint with parent_category_id filter
+            show_resp = self._request("GET", f"/categories.json?parent_category_id={CORES_CATEGORY_ID}")
+            category_list = show_resp.get('category_list', {}).get('categories', [])
+
+            cores = []
+            for cat in category_list:
+                core_data = {
+                    "id": cat['id'],
+                    "name": cat['name'],
+                    "slug": cat['slug'],
+                    "description": cat.get('description'),
+                    "topic_count": cat.get('topic_count')
+                }
+                cores.append(core_data)
+
+            # 2. Save
+            with open(CORES_REGISTRY_FILE, 'w') as f:
+                json.dump(cores, f, indent=2)
+
+            sys.stderr.write(f"[Cores] Synced {len(cores)} cores to {CORES_REGISTRY_FILE}.\n")
+            return cores
+
+        except Exception as e:
+            sys.stderr.write(f"[Cores] Failed to sync cores: {e}\n")
+            return []
 
     def deploy_core(
         self,
