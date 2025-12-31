@@ -1,34 +1,17 @@
 # Changelog
 
-All notable changes to this project will be documented in this file.
+All core functionality for the Bithub plugin is documented here.
 
-## [1.0.0] - 2025-12-29
+## [1.0.0] - 2025-12-31
 
-### Added
-- **Deletion Subsystem**: Added BithubJanitor for safe bulk deletion and delete_post/topic methods in BithubComms.
-- **Dual-Mode Sync**: Implemented sync=True/False flag for deploy_core and communication methods.
-- **Audience Flag**: Added target_audience='ai'|'human' to enforce JSON schemas or Markdown formatting.
-- **Burn Protocol**: Added burn=True to deploy_core for "Burn After Reply" workflows.
-- **Slow Nuke**: Implemented rate-limited bulk deletion to prevent API bans.
-
-### Changed
-- **License**: Switched from MIT to **Apache License 2.0**.
-- **Architecture**: Refactored into "Hand" (Comms), "Janitor" (Cleanup), and "Brain" (Cores) components.
-- **Documentation**: Consolidated documentation into README.md and docs/ folder.
-
-### Fixed
-- **Test Suite**: Refactored all tests to use mocks, ensuring zero network traffic during verification.
-- **Rate Limiting**: Added poll_interval to wait loops to respect API limits.
-
-## [1.0.0] - 2025-12-30
-### Added
-- **Pull Cores**: New  functionality in  to fetch Core Categories (Hegel, BITcore, etc.) recursively.
-- **CLI Tool**: Updated  to execute the core sync process.
-- **Security**: Implemented permission-aware syncing (skips inaccessible categories).
-
-### Fixed
-- **Integration**: Resolved syntax errors in  and environment loading in .
-- **Configuration**: Added missing  and  to .
-
-### Changed
-- **Architecture**: Moved core sync logic from scripts to the  library for better reusability.
+### Core Functionality
+- **Multi-Turn Logic**: Implemented `reply` command and `reply_to_post` methods for complex agentic dialogues.
+- **Deletion Subsystem**: BithubJanitor for safe bulk deletion and management of posts/topics.
+- **Dual-Mode Sync**: Support for `sync=True/False` flags in deployment and communication methods.
+- **Audience Control**: `target_audience` parameter to enforce JSON schemas (AI) or Markdown (Human).
+- **Burn Protocol**: `burn=True` support for ephemeral 'Burn After Reply' workflows.
+- **Synapse Architecture**: Refactored into 'Hand' (Comms), 'Janitor' (Cleanup), and 'Brain' (Cores) components.
+- **Core Sync**: Recursive fetching and synchronization of Core Categories and Categories.
+- **CLI Interface**: Unified entry point for agent interaction, core deployment, and registry management.
+- **Security**: Permission-aware syncing and environment-based authentication.
+- **Reliability**: Rate-limiting with jitter, exponential backoff, and comprehensive test suite with 100% mock coverage.

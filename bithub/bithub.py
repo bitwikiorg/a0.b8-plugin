@@ -67,7 +67,7 @@ def handle_agent(args: argparse.Namespace) -> None:
 def handle_core(args: argparse.Namespace) -> None:
     """Handle the 'core' subcommand: Deploy workflows or watch topics.
 
-    Supports deploying new core workflows or watching existing topics for updates.
+    Supports deploying core workflows or watching existing topics for updates.
 
     Args:
         args (argparse.Namespace): Parsed command-line arguments containing:
@@ -225,6 +225,24 @@ def handle_notifications(args: argparse.Namespace) -> None:
         sys.exit(1)
 
 
+
+def handle_reply(args: argparse.Namespace) -> None:
+    """Handle the 'reply' subcommand: Reply to an existing topic."""
+    try:
+        comms = BithubComms()
+        resp = comms.reply_to_post(args.topic_id, args.message)
+        my_post_id = resp['id']
+        reply = comms.wait_for_reply(args.topic_id, my_post_id, timeout=args.timeout)
+        if reply:
+            content = reply.get('cooked', '') or reply.get('raw', '')
+            print(comms.sanitize_html(content))
+        else:
+            sys.exit(1)
+    except Exception as e:
+        print(json.dumps({"status": "error", "message": str(e)}))
+        sys.exit(1)
+
+
 def main() -> None:
     """Main entry point for the Bithub CLI.
 
@@ -245,12 +263,20 @@ def main() -> None:
     p_agent.add_argument("--timeout", type=int, default=DEFAULT_TIMEOUT, help="Timeout in seconds")
     p_agent.set_defaults(func=handle_agent)
 
+    # Reply Command
+    p_reply = subparsers.add_parser("reply", help="Reply to an existing topic")
+    p_reply.add_argument("topic_id", type=int, help="Target topic ID")
+    p_reply.add_argument("message", help="Message content")
+    p_reply.add_argument("--timeout", type=int, default=DEFAULT_TIMEOUT, help="Timeout in seconds")
+    p_reply.set_defaults(func=handle_reply)
+
+
     # Core Command
     p_core = subparsers.add_parser("core", help="Deploy workflows")
     p_core_sub = p_core.add_subparsers(dest="subcommand", required=True)
 
     # Core Deploy
-    p_core_deploy = p_core_sub.add_parser("deploy", help="Deploy a new core workflow")
+    p_core_deploy = p_core_sub.add_parser("deploy", help="Deploy a core workflow")
     p_core_deploy.add_argument("title", help="Topic title")
     p_core_deploy.add_argument("content", help="Topic content")
     p_core_deploy.add_argument("--category", type=int, default=DEFAULT_CATEGORY_ID, help="Category ID")

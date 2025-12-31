@@ -56,6 +56,8 @@ class RateLimiter:
         self.last_call = time.time()
 
 class BithubComms:
+    # CRITICAL: Never pass raw framework placeholders (e.g., framework tags) to API methods.
+    # All content must be expanded/resolved before calling these functions.
     """Handles communication with the Bithub (Discourse) API.
 
     Manages authentication, rate limiting, and request execution for various
@@ -157,6 +159,22 @@ class BithubComms:
 
         raise BithubNetworkError("Max retries exceeded")
 
+
+    def _validate_content(self, content: str) -> None:
+        """Validates content for framework placeholders and length limits.
+
+        Args:
+            content (str): The content to validate.
+
+        Raises:
+            BithubError: If validation fails.
+        """
+        if len(content) > 32000:
+            raise BithubError(f"Content exceeds character limit (32,000). Current length: {len(content)}")
+
+        if re.search(r'§§|\{\{', content):
+            raise BithubError("Content contains unresolved framework placeholders (§§ or {{).")
+
     def _enforce_audience_format(self, content: str, audience: str) -> str:
         """Validates content format based on target audience.
 
@@ -212,6 +230,7 @@ class BithubComms:
             Dict[str, Any]: The API response (created topic or reply post).
         """
         raw = self._enforce_audience_format(raw, target_audience)
+        self._validate_content(raw)
 
         payload = {
             "title": title,
@@ -258,6 +277,7 @@ class BithubComms:
             raise ValueError("Invalid recipients list")
         
         raw = self._enforce_audience_format(raw, target_audience)
+        self._validate_content(raw)
         
         payload = {
             "title": title,
@@ -298,6 +318,7 @@ class BithubComms:
             Dict[str, Any]: The API response containing the new post details (or reply if sync).
         """
         raw = self._enforce_audience_format(raw, target_audience)
+        self._validate_content(raw)
 
         payload = {"topic_id": topic_id, "raw": raw}
         if reply_to_post_number:

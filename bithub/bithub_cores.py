@@ -1,3 +1,4 @@
+import time
 """
 BITCORE CORES MODULE (CORE SYNAPSE)
 
@@ -165,6 +166,35 @@ class BithubCores(BithubComms):
         else:
             sys.stderr.write(f"[Cores] Timeout ({timeout}s) reached. No completion signal detected.\n")
             return None
+
+
+    def wait_for_core_completion(self, topic_id: int, timeout: int = DEFAULT_TIMEOUT) -> List[Dict[str, Any]]:
+        """Polls for the 4 system responses (total 5 posts in thread).
+
+        Args:
+            topic_id (int): The ID of the topic to monitor.
+            timeout (int): Max wait time in seconds.
+
+        Returns:
+            List[Dict[str, Any]]: The list of posts in the topic.
+
+        Raises:
+            BithubError: If polling fails or timeout is reached.
+        """
+        start_time = time.time()
+        sys.stderr.write(f"[Cores] Waiting for Core completion in Topic {topic_id} (timeout: {timeout}s)...\n")
+
+        while (time.time() - start_time) < timeout:
+            topic_data = self.get_topic_posts(topic_id)
+            posts = topic_data.get("post_stream", {}).get("posts", [])
+
+            if len(posts) >= 5:
+                sys.stderr.write(f"[Cores] Core completion detected ({len(posts)} posts).\n")
+                return posts
+
+            time.sleep(5) # Poll every 5 seconds
+
+        raise BithubError(f"Timeout reached waiting for Core completion in Topic {topic_id}.")
 
     def sync_cores(self) -> List[Dict[str, Any]]:
         """Fetches Core definitions from the Cores category (subcategories).

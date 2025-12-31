@@ -107,3 +107,6 @@ Spawn a new process in the hive and wait for the seed.
 
 The system includes a BithubJanitor class that acts as an immune response, identifying and removing necrotic tissue (stale topics, temporary test artifacts) to maintain the hygiene of the hive mind.
 
+
+## Swarm Orchestration
+For details on the dual-swarm architecture and recursive refinement model, see [SWARM_ORCHESTRATION.md](docs/SWARM_ORCHESTRATION.md).

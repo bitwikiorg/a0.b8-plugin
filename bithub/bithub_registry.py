@@ -90,7 +90,7 @@ def cmd_refresh(args: argparse.Namespace, comms: BithubComms) -> None:
     print(f"[System] Syncing Registry from Public Topic {REGISTRY_TOPIC_ID}...")
 
     # Use the correct endpoint format with slug to get topic data
-    topic = comms.get_topic_posts(REGISTRY_TOPIC_ID, REGISTRY_TOPIC_SLUG)
+    topic = comms.get_topic_posts(REGISTRY_TOPIC_ID)
 
     # Extract the post stream from the topic
     stream = topic.get('post_stream', {}).get('posts', [])
