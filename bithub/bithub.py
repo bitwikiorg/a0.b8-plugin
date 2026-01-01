@@ -12,7 +12,7 @@ from dotenv import load_dotenv
 
 from .bithub_comms import BithubComms
 from .bithub_cores import BithubCores
-from .bithub_config import DEFAULT_CATEGORY_ID, DEFAULT_TIMEOUT
+from .bithub_config import DEFAULT_TIMEOUT
 from .bithub_errors import BithubError, BithubAuthError, BithubNetworkError, BithubRateLimitError
 from .bithub_logging import configure_logging
 from .bithub_registry import cmd_list, cmd_refresh
@@ -279,7 +279,7 @@ def main() -> None:
     p_core_deploy = p_core_sub.add_parser("deploy", help="Deploy a core workflow")
     p_core_deploy.add_argument("title", help="Topic title")
     p_core_deploy.add_argument("content", help="Topic content")
-    p_core_deploy.add_argument("--category", type=int, default=DEFAULT_CATEGORY_ID, help="Category ID")
+    p_core_deploy.add_argument("--category", type=int, required=True, help="Category ID")
     p_core_deploy.set_defaults(func=handle_core)
 
     # Core Watch

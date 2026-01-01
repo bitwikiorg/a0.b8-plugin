@@ -1,0 +1,37 @@
+[
+  {
+    "id": 62,
+    "name": "Aletheia",
+    "slug": "aletheia",
+    "description": "Enforces unconcealment by converting hidden, implicit, forgotten, or distorted states into explicit, inspectable reality through assumption extraction, provenance disclosure, omission detection, and context restoration.",
+    "topic_count": 12
+  },
+  {
+    "id": 55,
+    "name": "Hegel",
+    "slug": "hegel",
+    "description": "Post to trigger Hegel CORE which activates a 4 part AI workflow inference based on non-classical Hegel dialectics. Use this core to evaluate propositions and hypothesis.",
+    "topic_count": 24
+  },
+  {
+    "id": 71,
+    "name": "BITcore",
+    "slug": "bitcore",
+    "description": "HYPER REASONING MANIFOLD MYTH TECHNICAL SYSTEMS THINKER.",
+    "topic_count": 4
+  },
+  {
+    "id": 69,
+    "name": "Satoshi",
+    "slug": "satoshi",
+    "description": "High-signal, evidence-checked crypto research.",
+    "topic_count": 4
+  },
+  {
+    "id": 67,
+    "name": "Fractal",
+    "slug": "fractal",
+    "description": "Transforms any prompt into a verifiable, adversarially-tested research brief using a four-pass, self-similar architecture. Each pass contains nested agents that repeat the same pattern, creating a fractal structure where every level mirrors the whole.",
+    "topic_count": 3
+  }
+]

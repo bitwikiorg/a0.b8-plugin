@@ -1,26 +1,11 @@
-# 📋 REVISED ROADMAP: DUAL-MODE EVOLUTION
+# 📋 BITCORE ROADMAP
 
-## PHASE 1: STABILITY (Core Seed)
-- [x] **Implement Core Seed Pattern** (bithub_cores.py)
-  - [x] Add deploy_seed(title, category) -> Returns ID.
-  - [x] Add refine_seed(post_id, content) -> Updates Post.
-  - **Goal:** Prevent context loss. Secure the ID first, then inject the heavy payload.
+## COMPLETED (v1.1.0)
+- [x] Architectural Parity (TS/Python)
+- [x] Path Generalization (Un-Fitting)
+- [x] Dual-Layer Test Hardening
+- [x] Guard -> Do -> Verify Enforcement
 
-## PHASE 2: USABILITY (Audience Flag)
-- [x] **Implement Audience Flag** (bithub_comms.py)
-  - [x] Add target_audience param (enum: 'human', 'ai').
-  - [x] **Logic:**
-    - ai: Enforce strict JSON output (no markdown fluff).
-    - human: Enforce Markdown formatting (headers, bolding).
-
-## PHASE 3: FLEXIBILITY (Dual-Mode Sync/Async)
-- [x] **Implement Dual-Mode Comms** (bithub_comms.py)
-  - [x] Add sync: bool = False to send_message and deploy_core.
-  - [x] **Async (Default):** Fire & Forget. Returns {"post_id": 123}.
-  - [x] **Sync (Ping Pong):** Fire & Wait. Returns {"content": "Reply text..."}.
-- [x] **Dynamic Polling Strategy**
-  - [x] Add poll_interval arg to support long waits (>15m) without spamming the API.
-
-## FUTURE: v1.0.2 (Genome Integration)
-- [ ] **Genome Payloads**: Standardize sending full Holobiont Genomes via Bithub topics.
-- [ ] **Profile Integration**: Load Genomes directly from a0.b8-profile/artifacts.
+## FUTURE
+- [ ] Genome Payload Standardization
+- [ ] Real-time Synaptic Telemetry Dashboard

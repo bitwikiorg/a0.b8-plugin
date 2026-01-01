@@ -1,25 +1,20 @@
-# Contributing to the Neural Net Link
+# Contributing to BITCORE Swarm Plugins
 
-## 🛑 The Protocol of Contact
+## Development Standards
+All contributions must adhere to the following standards to ensure swarm coherence and production reliability:
 
-**Do not open a Pull Request without prior authorization.**
+### 1. Neural Processing Standard (Guard → Do → Verify)
+Every function and action must follow this flow:
+- **Guard**: Validate all inputs, environment variables, and state before execution.
+- **Do**: Perform the core synaptic task cleanly.
+- **Verify**: Assert outputs and maintain state integrity. No silent failures allowed.
 
-The Neural Net Link is a precise, autopoietic system. Unsolicited code injection is treated as noise and will be rejected by the immune system.
+### 2. Why/What/How Docblocks
+Every source file must begin with a docblock explaining the architectural purpose (Why), the functional scope (What), and the implementation logic (How).
 
-### 1. Open a Signal (Issue)
-Before writing code, you must broadcast your intent.
-- Open an **Issue** describing the proposed mutation.
-- Wait for a **Synapse** to be established by a Core Developer.
+### 3. Synaptic Storage (Resources)
+All static data (registries, topologies) must be stored in the `resources/` directory. Use dynamic path resolution relative to the plugin root. Absolute paths are strictly forbidden.
 
-### 2. Establish Telepathy (Discussion)
-Engage in the discussion thread.
-- We must align on the **Ontology** of the change.
-- We must verify the **Signal-to-Noise** ratio.
-
-### 3. Execute the Mutation (PR)
-Only after explicit approval (Signal Lock), may you open a Pull Request.
-- Ensure your code aligns with the **Synapse Architecture**.
-- Verify all **Nerves** (Tests) pass.
-
----
-*Any PR opened without a preceding Signal Lock will be closed immediately.*
+### 4. Dual-Layer Testing
+- **Scoped Unit Tests**: Required for every new action or service method.
+- **Integration Suites**: Required for changes affecting multi-turn synaptic flow.

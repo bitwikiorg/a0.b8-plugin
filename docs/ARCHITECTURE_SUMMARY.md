@@ -28,3 +28,14 @@
 **Component:** Async Knowledge Layer
 **Function:** Contextual Awareness & Signal Ingestion.
 - **Role:** The mechanism by which the Node perceives the environment.
+
+## 5. Synaptic Storage & Resilience
+- **Layer:** `resources/` directory.
+- **Logic:** Dynamic path resolution via `pathlib` (Python) or `path.resolve` (TS).
+- **Invariant:** No absolute paths allowed in the codebase.
+
+## 6. Neural Processing Standard
+All logic must follow the **Guard → Do → Verify** flow:
+1. **Guard:** Validate inputs and environment state.
+2. **Do:** Execute the core synaptic task.
+3. **Verify:** Assert outputs and maintain state integrity.

@@ -1,12 +1,25 @@
 """
-Configuration constants for the Bithub system.
+WHY: To provide a centralized, portable configuration layer for the a0.b8 plugin.
+WHAT: Defines environment-driven variables and dynamic path resolution for resources.
+HOW: Uses pathlib for cross-platform path handling; resolves resources relative to the plugin root.
 """
 
-DEFAULT_CATEGORY_ID = 55
-DEFAULT_TIMEOUT = 60
-REGISTRY_FILE = "bot_registry.json"
+import os
+from pathlib import Path
+
+# Plugin Root Resolution
+PLUGIN_ROOT = Path(__file__).parent.parent
+RESOURCES_DIR = PLUGIN_ROOT / "resources"
+
+# API Configuration
+BITHUB_URL = os.environ.get("BITHUB_URL", "https://hub.bitwiki.org").rstrip("/")
+DEFAULT_TIMEOUT = int(os.environ.get("BITHUB_TIMEOUT", "60"))
+
+# Resource Paths (Dynamic)
+REGISTRY_FILE = RESOURCES_DIR / "bot_registry.json"
+CORES_REGISTRY_FILE = RESOURCES_DIR / "cores_registry.json"
+TOPOLOGY_FILE = RESOURCES_DIR / "topology.json"
+
+# Swarm Constants
+CORES_CATEGORY_ID = 54
 REGISTRY_TOPIC_ID = 30145
-REGISTRY_TOPIC_SLUG = "bithub-full-list-of-llms-and-personas"
-REGISTRY_SOURCE_URL = f"https://hub.bitwiki.org/t/{REGISTRY_TOPIC_ID}"
-CORES_CATEGORY_ID = 54  # Default category for Cores
-CORES_REGISTRY_FILE = "cores_registry.json"

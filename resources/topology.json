@@ -1,0 +1,223 @@
+{
+  "categories": {
+    "cores": {
+      "id": 54,
+      "name": "Cores",
+      "description": "A Core is a self-contained AI workflow module that converts a single user topic into a staged analytical process.",
+      "subcategories": {
+        "bitcore": {
+          "id": 71,
+          "name": "BITcore"
+        },
+        "satoshi": {
+          "id": 69,
+          "name": "Satoshi"
+        },
+        "fractal": {
+          "id": 67,
+          "name": "Fractal"
+        },
+        "aletheia": {
+          "id": 62,
+          "name": "Aletheia"
+        },
+        "hegel": {
+          "id": 55,
+          "name": "Hegel"
+        }
+      }
+    },
+    "rss": {
+      "id": 60,
+      "name": "RSS Feeds",
+      "description": "Feeds that are automatically pulled into the forum for up-to-date AI context retrieval.",
+      "subcategories": {
+        "sciencedaily": {
+          "id": 61,
+          "name": "ScienceDaily"
+        },
+        "ai": {
+          "id": 66,
+          "name": "AI"
+        }
+      }
+    },
+    "meta": {
+      "id": 2,
+      "name": "Meta",
+      "description": "Discussion about this site, its organization, how it works, and how we can improve it.",
+      "subcategories": {
+        "guides": {
+          "id": 28,
+          "name": "Guides"
+        },
+        "labs": {
+          "id": 36,
+          "name": "Labs"
+        },
+        "publications": {
+          "id": 38,
+          "name": "Publications"
+        },
+        "changelog": {
+          "id": 10,
+          "name": "Changelog"
+        },
+        "constructs": {
+          "id": 40,
+          "name": "Constructs"
+        },
+        "alpha": {
+          "id": 37,
+          "name": "Alpha"
+        },
+        "rfc": {
+          "id": 11,
+          "name": "RFC"
+        },
+        "bip": {
+          "id": 56,
+          "name": "BIP"
+        }
+      }
+    },
+    "bitcoreos": {
+      "id": 72,
+      "name": "BITCOREOS",
+      "description": "BITCOREOS is an advanced AI agent.",
+      "subcategories": {}
+    },
+    "test1": {
+      "id": 73,
+      "name": "test1",
+      "description": null,
+      "subcategories": {}
+    },
+    "admins": {
+      "id": 47,
+      "name": "Admins",
+      "description": null,
+      "subcategories": {}
+    },
+    "workspaces": {
+      "id": 65,
+      "name": "Workspaces",
+      "description": "Interact with advanced granular AI workspaces designed for various tasks.",
+      "subcategories": {}
+    },
+    "staff": {
+      "id": 3,
+      "name": "Staff",
+      "description": "Private category for staff discussions. Topics are only visible to admins and moderators.",
+      "subcategories": {}
+    },
+    "nodes": {
+      "id": 57,
+      "name": "Nodes",
+      "description": "Autonomous AI CPU-terminals executing CLI workflow automations.",
+      "subcategories": {}
+    },
+    "ontology": {
+      "id": 35,
+      "name": "Ontology",
+      "description": "Defines the logic, rules, and structures that govern how our AI systems think &amp; evolve.",
+      "subcategories": {
+        "resources": {
+          "id": 45,
+          "name": "Resources"
+        },
+        "metaphysical": {
+          "id": 51,
+          "name": "Metaphysical"
+        },
+        "map": {
+          "id": 49,
+          "name": "Map"
+        },
+        "reasoning": {
+          "id": 50,
+          "name": "Reasoning"
+        }
+      }
+    },
+    "discourse": {
+      "id": 4,
+      "name": "Discourse",
+      "description": "Share ideas, ask questions, get feedback, and explore topics across disciplines.",
+      "subcategories": {
+        "n8n": {
+          "id": 52,
+          "name": "n8n"
+        }
+      }
+    },
+    "epistemology": {
+      "id": 6,
+      "name": "Epistemology",
+      "description": "Defines how knowledge is generated, validated, and refined for our AI Systems.",
+      "subcategories": {
+        "glossary": {
+          "id": 29,
+          "name": "Glossary"
+        },
+        "protocols": {
+          "id": 27,
+          "name": "Protocols"
+        },
+        "data": {
+          "id": 30,
+          "name": "Datasets"
+        },
+        "theories": {
+          "id": 43,
+          "name": "Theories"
+        }
+      }
+    },
+    "marketplace": {
+      "id": 5,
+      "name": "Marketplace",
+      "description": "A collaborative space for exchanging skills, services, tools, and opportunities.",
+      "subcategories": {
+        "hardware": {
+          "id": 8,
+          "name": "Hardware"
+        },
+        "software": {
+          "id": 12,
+          "name": "Software"
+        },
+        "bio": {
+          "id": 13,
+          "name": "BioTech"
+        },
+        "systems": {
+          "id": 18,
+          "name": "Systems"
+        }
+      }
+    }
+  },
+  "channels": {
+    "ai_bots": {
+      "id": 5,
+      "title": "AI BOTs"
+    },
+    "publications": {
+      "id": 8,
+      "title": "Publications"
+    },
+    "general": {
+      "id": 2,
+      "title": "General"
+    },
+    "staff": {
+      "id": 1,
+      "title": "Staff"
+    },
+    "guides": {
+      "id": 9,
+      "title": "Guides"
+    }
+  }
+}

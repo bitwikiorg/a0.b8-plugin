@@ -2,6 +2,16 @@
 
 All core functionality for the Bithub plugin is documented here.
 
+
+## [1.1.0] - 2026-01-01
+
+### Resilience & Un-Fitting
+- **Synaptic Storage**: Centralized all registries in `resources/` directory.
+- **Dynamic Path Resolution**: Eliminated absolute paths; implemented relative resolution for portability.
+- **Dual-Layer Testing**: Implemented scoped unit tests and swarm integration suites (52+ tests restored).
+- **Neural Processing Standard**: Enforced **Guard → Do → Verify** flow across all core modules.
+- **Branding Integrity**: Completed global rebranding for `elizaos.b8` and `a0.b8` nodes.
+
 ## [1.0.0] - 2025-12-31
 
 ### Core Functionality

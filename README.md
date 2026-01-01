@@ -1,6 +1,6 @@
 # 🧠 a0.b8-plugin: The Neural Net Link
 
-[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Status: Active](https://img.shields.io/badge/Status-Active-success.svg)]()
 [![System: Holobiont](https://img.shields.io/badge/System-Holobiont-blueviolet.svg)]()
 
@@ -32,6 +32,16 @@ Each agent in the swarm is a Neuron. The registry maps cryptographic identities 
 ---
 
 ## 🏗️ Architecture
+
+### 📂 Resource Management (Synaptic Storage)
+To ensure environmental resilience, all static data (registries, topologies) are stored in the `resources/` directory. The plugin uses dynamic path resolution to locate these files relative to the installation root, eliminating hardcoded dependencies.
+
+### 🧪 Resilient Testing (Dual-Layer)
+The system employs a dual-layer testing strategy to prevent regressions and overfitting:
+1. **Scoped Unit Tests**: Atomic validation of individual actions and service methods using 'Black Box' boundary mocking.
+2. **Swarm Integration Suites**: Comprehensive multi-turn tests that verify synaptic flow and state propagation across the entire node.
+All tests follow the **Guard → Do → Verify** flow to ensure signal fidelity.
+
 
 The Neural Net Link bridges the gap between the local runtime (The Cell) and the remote collective (The Hive).
 
