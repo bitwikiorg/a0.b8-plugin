@@ -1,9 +1,13 @@
 # 🧠 a0.b8-plugin: The Neural Net Link
 
-
+> [!WARNING]
+> **Active development has moved.**
+>
+> The maintained plugin now lives at [`agent.b8-plugin/a0.b8-plugin`](https://github.com/bitwikiorg/agent.b8-plugin/tree/main/a0.b8-plugin).
+> Use the consolidated repository for current installation, updates, and issues. This standalone repository remains available as historical source.
 
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-[![Status: Active](https://img.shields.io/badge/Status-Active-success.svg)]()
+[![Status: Consolidated](https://img.shields.io/badge/Status-Consolidated-blue.svg)](https://github.com/bitwikiorg/agent.b8-plugin/tree/main/a0.b8-plugin)
 [![System: Holobiont](https://img.shields.io/badge/System-Holobiont-blueviolet.svg)]()
 
 > **"The biological interface between the Agent Zero node and the BitWiki Hive Mind."**
